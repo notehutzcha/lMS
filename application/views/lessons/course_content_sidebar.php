@@ -28,7 +28,7 @@
 
         <div id="<?php echo 'collapse-'.$section['id']; ?>" class="collapse <?php if($section_id == $section['id']) echo 'show'; ?>" aria-labelledby="<?php echo 'heading-'.$section['id']; ?>" data-parent="#accordionExample">
           <div class="card-body"  style="padding:0px;">
-            <table style="width: 100%;">
+            <table border="1" style="width: 100%;">
               <?php foreach ($lessons as $key => $lesson): ?>
 
                 <tr style="width: 100%; padding: 5px 0px;background-color: <?php if ($lesson_id == $lesson['id'])echo '#E6F2F5'; else echo '#fff';?>;">
@@ -70,6 +70,8 @@
                         <i class="far fa-file-word"></i>  <?php echo get_phrase('attachment'); ?>
                       <?php elseif($fileExtension == 'txt'): ?>
                         <i class="far fa-file-alt"></i>  <?php echo get_phrase('attachment'); ?>
+                      <?php elseif($fileExtension == 'mp4'): ?>
+                        <i class="far fa-play-circle"></i>  <?php echo get_phrase('attachment'); ?>
                       <?php else: ?>
                         <i class="fa fa-file"></i>  <?php echo get_phrase('attachment'); ?>
                       <?php endif; ?>

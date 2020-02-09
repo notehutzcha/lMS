@@ -14,6 +14,7 @@ class Login extends CI_Controller {
         $this->output->set_header('Pragma: no-cache');
     }
 
+    // Check session
     public function index() {
         if ($this->session->userdata('admin_login')) {
             redirect(site_url('admin'), 'refresh');
@@ -39,6 +40,8 @@ class Login extends CI_Controller {
             $this->session->set_userdata('role', get_user_role('user_role', $row->id));
             $this->session->set_userdata('name', $row->first_name.' '.$row->last_name);
             $this->session->set_flashdata('flash_message', get_phrase('welcome').' '.$row->first_name.' '.$row->last_name);
+
+            //Check permissions login 
             if ($row->role_id == 1) {
                 $this->session->set_userdata('admin_login', '1');
                 redirect(site_url('admin/dashboard'), 'refresh');

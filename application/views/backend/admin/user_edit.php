@@ -33,7 +33,7 @@
                                     <span class="d-none d-sm-inline"><?php echo get_phrase('login_credentials'); ?></span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="#social_information" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                     <i class="mdi mdi-wifi mr-1"></i>
                                     <span class="d-none d-sm-inline"><?php echo get_phrase('social_information'); ?></span>
@@ -44,7 +44,7 @@
                                     <i class="mdi mdi-currency-eur mr-1"></i>
                                     <span class="d-none d-sm-inline"><?php echo get_phrase('payment_info'); ?></span>
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <a href="#finish" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                     <i class="mdi mdi-checkbox-marked-circle-outline mr-1"></i>
@@ -73,12 +73,12 @@
                                                 <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo $user_data['last_name']; ?>" required>
                                             </div>
                                         </div>
-                                        <div class="form-group row mb-3">
+                                        <!-- <div class="form-group row mb-3">
                                             <label class="col-md-3 col-form-label" for="linkedin_link"><?php echo get_phrase('biography'); ?></label>
                                             <div class="col-md-9">
                                                 <textarea name="biography" id = "summernote-basic" class="form-control"><?php echo $user_data['biography']; ?></textarea>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group row mb-3">
                                             <label class="col-md-3 col-form-label" for="user_image"><?php echo get_phrase('user_image'); ?></label>
                                             <div class="col-md-9">
@@ -110,6 +110,63 @@
                                                 <input type="email" id="email" name="email" class="form-control" value="<?php echo $user_data['email']; ?>" required>
                                             </div>
                                         </div>
+                                        <!--permisions-->
+                                        <div class="form-group row mb-3">
+                                            <label class="col-md-3 col-form-label" for="permissions"><?php echo get_phrase('permissions'); ?><span class="required">*</span></label>
+                                            <div class="col-md-9">
+                                                <select class="form-control" id="permissions" name="permissions" required>
+                                                    <?php 
+                                                        if($user_data['role_id'] == '1')
+                                                        {
+                                                            print "<option value='1' selected>Admin</option>";
+                                                            print "<option value='2'>User</option>";
+                                                            print "<option value='3'>Guest</option>";
+                                                        }
+                                                        elseif ($user_data['role_id'] == '2')
+                                                        {
+                                                            print "<option value='1'>Admin</option>";
+                                                            print "<option value='2' selected>User</option>";
+                                                            print "<option value='3'>Guest</option>";
+                                                        }
+                                                        else
+                                                        {
+                                                            print "<option value='1'>Admin</option>";
+                                                            print "<option value='2'>User</option>";
+                                                            print "<option value='3' selected>Guest</option>";
+                                                        } ?>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row mb-3">
+                                            <label class="col-md-3 col-form-label" for="status"><?php echo get_phrase('status'); ?><span class="required">*</span></label>
+                                            <div class="col-md-9">
+                                                <select class="form-control" id="status" name="status" required>
+                                                    <?php 
+                                                        if($user_data['status'] == '1')
+                                                        {
+                                                            print "<option value='1' selected>เปิดใช้งาน</option>";
+                                                            print "<option value='2'>ปิดการใช้งาน</option>";
+                                                            print "<option value='3'>เปิดแบบกำหนดเวลา</option>";
+                                                        }
+                                                        elseif ($user_data['status'] == '2')
+                                                        {
+                                                            print "<option value='1'>เปิดใช้งาน</option>";
+                                                            print "<option value='2' selected>ปิดการใช้งาน</option>";
+                                                            print "<option value='3'>เปิดแบบกำหนดเวลา</option>";
+                                                        }
+                                                        elseif($user_data['status'] == '3')
+                                                        {
+                                                            print "<option value='1'>เปิดใช้งาน</option>";
+                                                            print "<option value='2'>ปิดการใช้งาน</option>";
+                                                            print "<option value='3' selected>เปิดแบบกำหนดเวลา</option>";
+                                                        } ?>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+
                                     </div> <!-- end col -->
                                 </div> <!-- end row -->
                             </div>

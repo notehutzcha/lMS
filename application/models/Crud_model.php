@@ -796,7 +796,7 @@ class Crud_model extends CI_Model {
         $fileName           = $_FILES['attachment']['name'];
         $tmp                = explode('.', $fileName);
         $fileExtension      = end($tmp);
-        $uploadable_file    =  md5(uniqid(rand(), true)).'.'.$fileExtension;
+        $uploadable_file    =  md5(uniqid(rand(), true)).'.'.$fileExtension; //encode filename
         $data['attachment'] = $uploadable_file;
 
         if (!file_exists('uploads/lesson_files')) {

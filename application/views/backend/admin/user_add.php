@@ -14,6 +14,7 @@
 
                 <h4 class="header-title mb-3"><?php echo get_phrase('student_add_form'); ?></h4>
 
+                <!--From-->
                 <form class="required-form" action="<?php echo site_url('admin/users/add'); ?>" enctype="multipart/form-data" method="post">
                     <div id="progressbarwizard">
                         <ul class="nav nav-pills nav-justified form-wizard-header mb-3">
@@ -107,14 +108,46 @@
                                             <label class="col-md-3 col-form-label" for="permissions"><?php echo get_phrase('permissions'); ?><span class="required">*</span></label>
                                             <div class="col-md-9">
                                                 <select class="form-control" id="permissions" name="permissions" required>
-                                                    <option>-- Select --</option>
-                                                    <option>Admin</option>
-                                                    <option>User</option>
-                                                    <option>Guest</option>
+                                                    <option value="0">-- Select --</option>
+                                                    <option value="1">Admin</option>
+                                                    <option value="2">User</option>
+                                                    <option value="3">Guest</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        
+
+                                        <div class="form-group row mb-3">
+                                            <label class="col-md-3 col-form-label" for="status"><?php echo get_phrase('status'); ?><span class="required">*</span></label>
+                                            <div class="col-md-9">
+                                                <select class="form-control" id="status" name="status" required onchange="show_status_form(this.value)">
+                                                    <option value="0">-- Select --</option>
+                                                    <option value="1">เปิดการใช้งาน</option>
+                                                    <option value="2">ปิดการใช้งาน</option>
+                                                    <option value="3">เปิดการใช้งานแบบกำหนดเวลา</option>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="" id = "date_available" style="display: none;">
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-3 col-form-label" for="status"><?php echo get_phrase('date'); ?><span class="required">*</span></label>
+                                            <div class="col-md-9">
+                                                <select class="form-control" id="date_end" name="date_end" required>
+                                                    <option value="0">-- Select --</option>
+                                                    <?php 
+
+                                                        for($i=1;$i<=12;$i++)
+                                                        {
+                                                            print"<option value=".$i.">".$i." เดือน</option>";
+                                                        }
+
+                                                    ?>
+                                                    
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div> <!-- end col -->
                                 </div> <!-- end row -->
                             </div>
@@ -204,3 +237,18 @@
         </div> <!-- end card-->
     </div>
 </div>
+<script type="text/javascript">
+    
+    function show_status_form(param) {
+        
+        var status_type = param;
+        if (status_type === "3") {
+            
+            $('#date_available').show();
+        
+        }else {
+           $('#date_available').hide();
+        }
+    }
+
+</script>

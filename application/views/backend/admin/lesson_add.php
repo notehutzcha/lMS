@@ -25,24 +25,32 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
         <label for="section_id"><?php echo get_phrase('lesson_type'); ?></label>
         <select class="form-control select2" data-toggle="select2" name="lesson_type" id="lesson_type" required onchange="show_lesson_type_form(this.value)">
             <option value=""><?php echo get_phrase('select_type_of_lesson'); ?></option>
-            <option value="video-url"><?php echo get_phrase('video_url'); ?></option>
+            <option value="other-video"><?php echo get_phrase('video_url'); ?></option>
             <option value="other-txt"><?php echo get_phrase('text_file'); ?></option>
             <option value="other-pdf"><?php echo get_phrase('pdf_file'); ?></option>
             <option value="other-doc"><?php echo get_phrase('document_file'); ?></option>
             <option value="other-img"><?php echo get_phrase('image_file'); ?></option>
         </select>
+        <!-- <input type="file" name="video" value="เลือกวิดีโอ"> -->
     </div>
 
     <div class="" id="video" style="display: none;">
 
         <div class="form-group">
-            <label for="lesson_provider"><?php echo get_phrase('lesson_provider'); ?></label>
-            <select class="form-control select2" data-toggle="select2" name="lesson_provider" id="lesson_provider" onchange="check_video_provider(this.value)">
+            <!-- <label for="lesson_provider"><?php echo get_phrase('lesson_provider'); ?></label> -->
+            <!-- <select class="form-control select2" data-toggle="select2" name="lesson_provider" id="lesson_provider" onchange="check_video_provider(this.value)">
                 <option value=""><?php echo get_phrase('select_lesson_provider'); ?></option>
                 <option value="youtube"><?php echo get_phrase('youtube'); ?></option>
                 <option value="vimeo"><?php echo get_phrase('vimeo'); ?></option>
                 <option value="html5">HTML5</option>
-            </select>
+            </select> -->
+            <label> <?php echo get_phrase('attachment'); ?></label>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="attachment" name="attachment" onchange="changeTitleOfImageUploader(this)">
+                    <label class="custom-file-label" for="attachment"><?php echo get_phrase('attachment'); ?></label>
+                </div>
+            </div>
         </div>
 
 

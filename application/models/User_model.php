@@ -44,11 +44,22 @@ class User_model extends CI_Model {
             $social_link['linkedin'] = html_escape($this->input->post('linkedin_link'));
             $data['social_links'] = json_encode($social_link);
             $data['biography'] = $this->input->post('biography');
-            $data['role_id'] = 2;
+            // if(html_escape($this->input->post('permissions'))==1)
+            // {
+            //     $permissions = 1;
+            // }
+            // elseif (html_escape($this->input->post('permissions'))==2) 
+            // {
+            //     $permissions = 2;
+            // }
+            // $data['role_id'] = 2 ;
+            $data['role_id'] = html_escape($this->input->post('permissions'));
             $data['date_added'] = strtotime(date("Y-m-d H:i:s"));
             $data['wishlist'] = json_encode(array());
             $data['watch_history'] = json_encode(array());
-            $data['status'] = 1;
+            $data['status'] = html_escape($this->input->post('status'));
+
+            $data['date_end'] = html_escape($this->input->post('status'));
             // Add paypal keys
             $paypal_info = array();
             $paypal['production_client_id'] = html_escape($this->input->post('paypal_client_id'));
@@ -100,6 +111,9 @@ class User_model extends CI_Model {
 
             if (isset($_POST['email'])) {
                 $data['email'] = html_escape($this->input->post('email'));
+                $data['role_id'] = html_escape($this->input->post('permissions'));
+                $data['status'] = html_escape($this->input->post('status'));
+
             }
             $social_link['facebook'] = html_escape($this->input->post('facebook_link'));
             $social_link['twitter'] = html_escape($this->input->post('twitter_link'));

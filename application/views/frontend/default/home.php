@@ -202,7 +202,7 @@
                         <a href="<?php echo site_url('home/course/'.slugify($latest_course['title']).'/'.$latest_course['id']); ?>">
                             <div class="course-box">
                                 <div class="course-image">
-                                    <img src="<?php echo $this->crud_model->get_course_thumbnail_url($latest_course['id']); ?>" alt="" class="img-fluid">
+                                    <img src="<?php echo $this->crud_model->get_course_thumbnail_url($latest_course['id']); ?>" alt="" class="img-fluid" style="width: 230px; height: 230px;">
                                 </div>
                                 <div class="course-details">
                                     <h5 class="title"><?php echo $latest_course['title']; ?></h5>

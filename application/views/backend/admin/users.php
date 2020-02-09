@@ -23,6 +23,7 @@
                       <th><?php echo get_phrase('photo'); ?></th>
                       <th><?php echo get_phrase('name'); ?></th>
                       <th><?php echo get_phrase('email'); ?></th>
+                      <th><?php echo get_phrase('user_status'); ?></th>
                       <th><?php echo get_phrase('enrolled_courses'); ?></th>
                       <th><?php echo get_phrase('actions'); ?></th>
                     </tr>
@@ -37,6 +38,21 @@
                               </td>
                               <td><?php echo $user['first_name'].' '.$user['last_name']; ?></td>
                               <td><?php echo $user['email']; ?></td>
+                              <?php 
+                                if($user['role_id']=='1')
+                                {
+                                  $user_status = "Admin";
+                                } 
+                                elseif ($user['role_id']=='2')
+                                {
+                                  $user_status = "User";
+                                }
+                                else
+                                {
+                                  $user_status = "Guest";
+                                }
+                              ?>
+                              <td><?php echo $user_status; ?></td>
                               <td>
                                  <?php
                                     $enrolled_courses = $this->crud_model->enrol_history_by_user_id($user['id']);?>

@@ -89,6 +89,7 @@
                                                         <textarea name="description" id = "description" class="form-control"></textarea>
                                                     </div>
                                                 </div>
+                                                <!--select course-->
                                                 <div class="form-group row mb-3">
                                                     <label class="col-md-2 col-form-label" for="sub_category_id"><?php echo get_phrase('category'); ?><span class="required">*</span></label>
                                                     <div class="col-md-10">
@@ -105,6 +106,7 @@
                                                     </select>
                                                 </div>
                                             </div>
+
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-2 col-form-label" for="level"><?php echo get_phrase('level'); ?></label>
                                                 <div class="col-md-10">
@@ -151,7 +153,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="">
-                                                                <button type="button" class="btn btn-success btn-sm" style="" name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
+                                                                <button type="button" class="btn btn-success btn-sm"  name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
                                                             </div>
                                                         </div>
                                                         <div id = "blank_requirement_field">

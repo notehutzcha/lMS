@@ -62,11 +62,25 @@
             <?php include 'quiz_view.php'; ?>
           </div>
         <?php else: ?>
-          <div class="mt-5">
-            <a href="<?php echo base_url().'uploads/lesson_files/'.$lesson_details['attachment']; ?>" class="btn btn-sign-up" download style="color: #fff;">
+          <!-- <div class="mt-5"> -->
+            <br>
+            <?php if(substr($lesson_details['attachment'],-4) == '.mp4'){ ?>
+              <video width="1000" height="500" controls>
+                <source src="<?php echo base_url().'uploads/lesson_files/'.$lesson_details['attachment']; ?>" type="video/mp4">
+                <!-- <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag. -->
+              </video>
+           <!--  <a href="<?php echo base_url().'uploads/lesson_files/'.$lesson_details['attachment']; ?>" class="btn btn-sign-up" download style="color: #fff;">
               <i class="fa fa-download" style="font-size: 20px;"></i> <?php echo get_phrase('download').' '.$lesson_details['title']; ?>
-            </a>
-          </div>
+            </a> -->
+          <!-- </div> -->
+        <?php } if(substr($lesson_details['attachment'],-4) == '.pdf'){ ?>
+            <embed src="<?php echo base_url().'uploads/lesson_files/'.$lesson_details['attachment']; ?>" width="1000"  height="500" />
+          <?php } 
+            
+          if(substr($lesson_details['attachment'],-4) == ".jpg" || substr($lesson_details['attachment'],-5) == ".jpeg" || substr($lesson_details['attachment'],-4) == ".png" || substr($lesson_details['attachment'],-4) == ".bmp" || substr($lesson_details['attachment'],-4) == ".svg"){ ?>
+            <img src = "<?php echo base_url().'uploads/lesson_files/'.$lesson_details['attachment']; ?>" width="1000"  height="500">
+          <?php } ?>
         <?php endif; ?>
       </div>
 

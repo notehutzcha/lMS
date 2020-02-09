@@ -131,7 +131,7 @@ class Admin extends CI_Controller {
 
     $page_data['page_name'] = 'users';
     $page_data['page_title'] = get_phrase('student');
-    $page_data['users'] = $this->user_model->get_user($param2);
+    $page_data['users'] = $this->user_model->get_all_user($param2);
     $this->load->view('backend/index', $page_data);
   }
 
