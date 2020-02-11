@@ -379,7 +379,8 @@ class Crud_model extends CI_Model {
     $data['discount_flag'] = $this->input->post('discount_flag');
     $data['discounted_price'] = $this->input->post('discounted_price');
     $data['level'] = $this->input->post('level');
-    $data['is_free_course'] = $this->input->post('is_free_course');
+    // $data['is_free_course'] = $this->input->post('is_free_course');
+    $data['is_free_course'] = 1;
     $data['video_url'] = html_escape($this->input->post('course_overview_url'));
 
     if ($this->input->post('course_overview_url') != "") {

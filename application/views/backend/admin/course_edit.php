@@ -49,12 +49,12 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                             <span class="d-none d-sm-inline"><?php echo get_phrase('outcomes'); ?></span>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <a href="#pricing" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                             <i class="mdi mdi-currency-cny mr-1"></i>
                                             <span class="d-none d-sm-inline"><?php echo get_phrase('pricing'); ?></span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item">
                                         <a href="#media" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
                                             <i class="mdi mdi-library-video mr-1"></i>
@@ -169,7 +169,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                                         </div>
                                                                     </div>
                                                                     <div class="">
-                                                                        <button type="button" class="btn btn-success btn-sm" style="" name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
+                                                                        <button type="button" class="btn btn-success btn-sm"  name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
                                                                     </div>
                                                                 </div>
                                                             <?php else: ?>
@@ -193,7 +193,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                                 </div>
                                                             </div>
                                                             <div class="">
-                                                                <button type="button" class="btn btn-success btn-sm" style="" name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
+                                                                <button type="button" class="btn btn-success btn-sm"  name="button" onclick="appendRequirement()"> <i class="fa fa-plus"></i> </button>
                                                             </div>
                                                         </div>
                                                     <?php endif; ?>
@@ -284,7 +284,7 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                             </div>
                         </div>
 
-                        <div class="tab-pane" id="pricing">
+                        <!-- <div class="tab-pane" id="pricing">
                             <div class="row justify-content-center">
                                 <div class="col-xl-8">
                                     <div class="form-group row mb-3">
@@ -320,10 +320,13 @@ $course_details = $this->crud_model->get_course_by_id($course_id)->row_array();
                                                 <small class="text-muted"><?php echo get_phrase('this_course_has'); ?> <span id = "discounted_percentage" class="text-danger">0%</span> <?php echo get_phrase('discount'); ?></small>
                                             </div>
                                         </div>
-                                    </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
-                        </div> <!-- end tab-pane -->
+                                    </div> -->
+                                    <!-- end col -->
+                                <!-- </div>  -->
+                                <!-- end row -->
+                            <!-- </div>  -->
+                            <!-- end tab-pane -->
+                        <!-- </div>  -->
                         <div class="tab-pane" id="media">
                             <div class="row justify-content-center">
 

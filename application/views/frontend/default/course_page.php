@@ -189,7 +189,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                   <i class="far fa-user"></i>
                   <?php echo $this->crud_model->enrol_history($other_realted_course['id'])->num_rows(); ?>
                 </span>
-                <?php if ($other_realted_course['is_free_course'] == 1): ?>
+                <!-- <?php if ($other_realted_course['is_free_course'] == 1): ?>
                   <span class="item-price">
                     <span class="current-price"><?php echo get_phrase('free'); ?></span>
                   </span>
@@ -204,7 +204,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
                       <span class="current-price"><?php echo currency($other_realted_course['price']); ?></span>
                     </span>
                   <?php endif; ?>
-                <?php endif; ?>
+                <?php endif; ?> -->
               </div>
             </div>
           </div>
@@ -380,7 +380,7 @@ $instructor_details = $this->user_model->get_all_user($course_details['user_id']
     <div class="course-sidebar-text-box">
       <div class="price">
         <?php if ($course_details['is_free_course'] == 1): ?>
-          <span class = "current-price"><span class="current-price"><?php echo get_phrase('free'); ?></span></span>
+          <!-- <span class = "current-price"><span class="current-price"><?php echo get_phrase('free'); ?></span></span> -->
         <?php else: ?>
           <?php if ($course_details['discount_flag'] == 1): ?>
             <span class = "current-price"><span class="current-price"><?php echo currency($course_details['discounted_price']); ?></span></span>
