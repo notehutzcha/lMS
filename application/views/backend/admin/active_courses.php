@@ -1,7 +1,7 @@
 <table class="table table-bordered" id="active_courses_table">
     <thead>
       <tr>
-      <!-- sfgdgbgfxvx -->
+      
         <th><?php echo get_phrase('title'); ?></th>
         <th><?php echo get_phrase('category'); ?></th>
         <th><?php echo get_phrase('instructor'); ?></th>
