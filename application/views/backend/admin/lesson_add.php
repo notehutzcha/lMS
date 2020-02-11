@@ -25,7 +25,8 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
         <label for="section_id"><?php echo get_phrase('lesson_type'); ?></label>
         <select class="form-control select2" data-toggle="select2" name="lesson_type" id="lesson_type" required onchange="show_lesson_type_form(this.value)">
             <option value=""><?php echo get_phrase('select_type_of_lesson'); ?></option>
-            <option value="other-video"><?php echo get_phrase('video_url'); ?></option>
+            <option value="video"><?php echo get_phrase('video_url'); ?></option>
+            <option value="other-video"><?php echo get_phrase('video_file'); ?></option>
             <option value="other-txt"><?php echo get_phrase('text_file'); ?></option>
             <option value="other-pdf"><?php echo get_phrase('pdf_file'); ?></option>
             <option value="other-doc"><?php echo get_phrase('document_file'); ?></option>
@@ -37,20 +38,21 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
     <div class="" id="video" style="display: none;">
 
         <div class="form-group">
-            <!-- <label for="lesson_provider"><?php echo get_phrase('lesson_provider'); ?></label> -->
-            <!-- <select class="form-control select2" data-toggle="select2" name="lesson_provider" id="lesson_provider" onchange="check_video_provider(this.value)">
+            <label for="lesson_provider"><?php echo get_phrase('lesson_provider'); ?></label>
+            <select class="form-control select2" data-toggle="select2" name="lesson_provider" id="lesson_provider" onchange="check_video_provider(this.value)">
                 <option value=""><?php echo get_phrase('select_lesson_provider'); ?></option>
                 <option value="youtube"><?php echo get_phrase('youtube'); ?></option>
                 <option value="vimeo"><?php echo get_phrase('vimeo'); ?></option>
                 <option value="html5">HTML5</option>
-            </select> -->
-            <label> <?php echo get_phrase('attachment'); ?></label>
+            </select>
+
+            <!-- <label> <?php echo get_phrase('attachment'); ?></label>
             <div class="input-group">
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="attachment" name="attachment" onchange="changeTitleOfImageUploader(this)">
                     <label class="custom-file-label" for="attachment"><?php echo get_phrase('attachment'); ?></label>
                 </div>
-            </div>
+            </div> -->
         </div>
 
 
@@ -100,6 +102,12 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
                     <input type="file" class="custom-file-input" id="attachment" name="attachment" onchange="changeTitleOfImageUploader(this)">
                     <label class="custom-file-label" for="attachment"><?php echo get_phrase('attachment'); ?></label>
                 </div>
+            </div>
+        </div>
+        <div id="show-duration" style="display: none;">
+            <div class="form-group">
+                <label><?php echo get_phrase('duration'); ?></label>
+                <input type="text" name = "duration" id = "duration" class="form-control" required>
             </div>
         </div>
     </div>
@@ -157,12 +165,19 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
     function show_lesson_type_form(param) {
         var checker = param.split('-');
         var lesson_type = checker[0];
+        var lesson_type2 = checker[1];
         if (lesson_type === "video") {
             $('#other').hide();
             $('#video').show();
         }else if (lesson_type === "other") {
             $('#video').hide();
             $('#other').show();
+            if(lesson_type2 ==="video"){
+                $('#show-duration').show();
+            }
+            else{
+                $('#show-duration').hide();
+            }
         }else {
             $('#video').hide();
             $('#other').hide();
@@ -181,4 +196,5 @@ $sections = $this->crud_model->get_section('course', $param2)->result_array();
             $('#html5').hide();
         }
     }
+    
 </script>

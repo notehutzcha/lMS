@@ -26,14 +26,15 @@
         <label for="section_id"><?php echo get_phrase('lesson_type'); ?></label>
         <select class="form-control select2" data-toggle="select2" name="lesson_type" id="lesson_type" required onchange="show_lesson_type_form(this.value)">
             <option value=""><?php echo get_phrase('select_type_of_lesson'); ?></option>
-            <option value="other-video" <?php if($lesson_details['attachment_type'] == 'video' || $lesson_details['attachment_type'] == '') echo 'selected'; ?>><?php echo get_phrase('video_url'); ?></option>
+            <option value="video" <?php if($lesson_details['lession_type'] == 'video' || $lesson_details['attachment_type'] == '') echo 'selected'; ?>><?php echo get_phrase('video_url'); ?></option>
+            <option value="other-video" <?php if($lesson_details['attachment_type'] == 'video' || $lesson_details['attachment_type'] == '') echo 'selected'; ?>><?php echo get_phrase('video_file'); ?></option>
             <option value="other-txt" <?php if($lesson_details['attachment_type'] == 'txt') echo 'selected'; ?>><?php echo get_phrase('text_file'); ?></option>
             <option value="other-pdf" <?php if($lesson_details['attachment_type'] == 'pdf') echo 'selected'; ?>><?php echo get_phrase('pdf_file'); ?></option>
             <option value="other-doc" <?php if($lesson_details['attachment_type'] == 'doc') echo 'selected'; ?>><?php echo get_phrase('document_file'); ?></option>
             <option value="other-img" <?php if($lesson_details['attachment_type'] == 'img') echo 'selected'; ?>><?php echo get_phrase('image_file'); ?></option>
         </select>
     </div>
-<!-- 
+
     <div class="" id="video" <?php if($lesson_details['lesson_type'] != 'video'):?> style="display: none;" <?php endif; ?>>
 
         <div class="form-group">
@@ -45,8 +46,8 @@
                 <option value="html5" <?php if(strtolower($lesson_details['video_type']) == 'html5') echo 'selected'; ?>>HTML5</option>
             </select>
         </div>
- -->
- <!--        <div class="" id = "youtube_vimeo" <?php if(strtolower($lesson_details['video_type']) == 'vimeo' || strtolower($lesson_details['video_type']) == 'youtube'):?>  <?php else: ?> style="display: none;" <?php endif; ?>>
+
+        <div class="" id = "youtube_vimeo" <?php if(strtolower($lesson_details['video_type']) == 'vimeo' || strtolower($lesson_details['video_type']) == 'youtube'):?>  <?php else: ?> style="display: none;" <?php endif; ?>>
 
             <div class="form-group">
                 <label><?php echo get_phrase('video_url'); ?></label>
@@ -82,7 +83,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <div class="" id = "other" <?php if($lesson_details['lesson_type'] != 'other'):?> style="display: none;" <?php endif; ?>>
         <div class="form-group">
@@ -92,6 +93,12 @@
                     <input type="file" class="custom-file-input" id="attachment" name="attachment" onchange="changeTitleOfImageUploader(this)">
                     <label class="custom-file-label" for="attachment"><?php echo get_phrase('attachment'); ?></label>
                 </div>
+            </div>
+        </div>
+        <div id="show-duration" <?php if($lesson_details['duration'] != ''): ?> style="display: none;" <?php endif; ?>>
+            <div class="form-group">
+                <label><?php echo get_phrase('duration'); ?></label>
+                <input type="text" name = "duration" id = "duration" class="form-control" value="<?php echo $lesson_details['duration']; ?>" required>
             </div>
         </div>
     </div>
@@ -163,12 +170,19 @@ function checkURLValidity(video_url) {
 function show_lesson_type_form(param) {
     var checker = param.split('-');
     var lesson_type = checker[0];
+    var lesson_type2 = checker[1];
     if (lesson_type === "video") {
         $('#other').hide();
         $('#video').show();
     }else if (lesson_type === "other") {
         $('#video').hide();
         $('#other').show();
+        if(lesson_type2 === "video"){
+            $('#show-duration').show(); 
+        }
+        else{
+            $('#show-duration').hide(); 
+        }
     }else {
         $('#video').hide();
         $('#other').hide();

@@ -52,7 +52,7 @@
                   </a>
 
                   <div class="lesson_duration">
-                    <?php if ($lesson['lesson_type'] == 'video' || $lesson['lesson_type'] == '' || $lesson['lesson_type'] == NULL): ?>
+                    <?php if ($lesson['lesson_type'] == 'video' || $lesson['attachment_type'] == 'video' ||$lesson['lesson_type'] == '' || $lesson['lesson_type'] == NULL): ?>
                       <?php //echo $lesson['duration']; ?>
                       <i class="far fa-play-circle"></i>
                       <?php echo readable_time_for_humans($lesson['duration']); ?>
@@ -70,8 +70,10 @@
                         <i class="far fa-file-word"></i>  <?php echo get_phrase('attachment'); ?>
                       <?php elseif($fileExtension == 'txt'): ?>
                         <i class="far fa-file-alt"></i>  <?php echo get_phrase('attachment'); ?>
-                      <?php elseif($fileExtension == 'mp4'): ?>
-                        <i class="far fa-play-circle"></i>  <?php echo get_phrase('attachment'); ?>
+                      
+                        <!-- <?php elseif($fileExtension == 'mp4'): ?>
+                        <i class="far fa-play-circle"></i>  <?php echo get_phrase('attachment'); ?> -->
+                        
                       <?php else: ?>
                         <i class="fa fa-file"></i>  <?php echo get_phrase('attachment'); ?>
                       <?php endif; ?>

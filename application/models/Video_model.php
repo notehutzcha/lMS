@@ -51,8 +51,7 @@ class Video_model extends CI_Model {
 	}
 
     // Get video details new code
-    function getVideoDetails($url)
-	{
+    function getVideoDetails($url){
 	    $host = explode('.', str_replace('www.', '', strtolower(parse_url($url, PHP_URL_HOST))));
 	    $host = isset($host[0]) ? $host[0] : $host;
 
@@ -81,7 +80,8 @@ class Video_model extends CI_Model {
 				'embed_video'       => "https://player.vimeo.com/video/" . $video_id,
 				'duration'			=>	gmdate("H:i:s", $hash->duration)
 			);
-		}elseif ('youtube' || 'youtu') {
+		}
+		elseif ('youtube' || 'youtu') {
 			$video_id = $this->get_youtube_video_id($url);
 			$hash = json_decode(file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&id=".$video_id."&key=".$youtube_api_key.""));
 			//header("Content-Type: text/plain");

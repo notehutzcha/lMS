@@ -751,7 +751,15 @@ class Crud_model extends CI_Model {
 
     $lesson_type_array = explode('-', $this->input->post('lesson_type'));
     $lesson_type = $lesson_type_array[0];
-
+    $lesson_type2 = $lesson_type_array[1];
+    if($lesson_type2 == "video"){
+      $duration_formatter = explode(':', $this->input->post('duration'));
+      $hour = sprintf('%02d', $duration_formatter[0]);
+      $min = sprintf('%02d', $duration_formatter[1]);
+      $sec = sprintf('%02d', $duration_formatter[2]);
+      $data['duration'] = $hour.':'.$min.':'.$sec;
+    }
+    
     $data['attachment_type'] = $lesson_type_array[1];
     $data['lesson_type'] = $lesson_type;
 
@@ -792,6 +800,7 @@ class Crud_model extends CI_Model {
       if ($_FILES['attachment']['name'] == "") {
         $this->session->set_flashdata('error_message',get_phrase('invalid_attachment'));
         redirect(site_url(strtolower($this->session->userdata('role')).'/course_form/course_edit/'.$data['course_id']), 'refresh');
+        
       }else {
         $fileName           = $_FILES['attachment']['name'];
         $tmp                = explode('.', $fileName);
@@ -830,6 +839,14 @@ class Crud_model extends CI_Model {
 
     $lesson_type_array = explode('-', $this->input->post('lesson_type'));
     $lesson_type = $lesson_type_array[0];
+    $lesson_type2 = $lesson_type_array[1];
+    if($lesson_type2 == "video"){
+      $duration_formatter = explode(':', $this->input->post('duration'));
+      $hour = sprintf('%02d', $duration_formatter[0]);
+      $min = sprintf('%02d', $duration_formatter[1]);
+      $sec = sprintf('%02d', $duration_formatter[2]);
+      $data['duration'] = $hour.':'.$min.':'.$sec;
+    }
 
     $data['attachment_type'] = $lesson_type_array[1];
     $data['lesson_type'] = $lesson_type;
