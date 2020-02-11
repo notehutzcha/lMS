@@ -62,7 +62,7 @@
     <div class="container-lg">
         <div class="row">
             <div class="col">
-                <h2 class="course-carousel-title"><?php echo get_phrase('top_courses'); ?></h2>
+                <!-- <h2 class="course-carousel-title"><?php echo get_phrase('top_courses'); ?></h2> -->
                 <div class="course-carousel">
                     <?php $top_courses = $this->crud_model->get_top_courses()->result_array();
                     $cart_items = $this->session->userdata('cart_items');
@@ -230,7 +230,7 @@
                                     <?php endfor; ?>
                                     <span class="d-inline-block average-rating"><?php echo $average_ceil_rating; ?></span>
                                 </div>
-                                <?php if ($latest_course['is_free_course'] == 1): ?>
+                                <!-- <?php if ($latest_course['is_free_course'] == 1): ?>
                                     <p class="price text-right"><?php echo get_phrase('free'); ?></p>
                                 <?php else: ?>
                                     <?php if ($latest_course['discount_flag'] == 1): ?>
@@ -238,7 +238,8 @@
                                     <?php else: ?>
                                         <p class="price text-right"><?php echo currency($latest_course['price']); ?></p>
                                     <?php endif; ?>
-                                <?php endif; ?>
+                                <?php endif; ?> -->
+                                <br>
                             </div>
                         </div>
                     </a>
