@@ -35,9 +35,24 @@
 	<?php
 	if ($this->session->userdata('user_login')) {
 		include 'logged_in_header.php';
-	}else {
+	}
+	elseif($this->session->userdata('guest_login')){
+		include 'logged_in_guest_header.php';
+	}
+	else {
 		include 'logged_out_header.php';
 	}
+	print_r($_SESSION);
+	print"<br>";
+	if(isset($user_details))
+	{
+		print_r($user_details);
+	}
+	else{
+		print "nothing";
+	}
+	// print_r($user_details);
+
 	include $page_name.'.php';
 	include 'footer.php';
 	include 'includes_bottom.php';

@@ -119,7 +119,7 @@ class Home extends CI_Controller {
     }
 
     public function my_courses() {
-        if ($this->session->userdata('user_login') != true) {
+        if ($this->session->userdata('user_login') != true || $this->session->userdata('guest_login') != true) {
             redirect(site_url('home'), 'refresh');
         }
         $page_data['page_name'] = "my_courses";
@@ -265,7 +265,7 @@ class Home extends CI_Controller {
     }
 
     public function isLoggedIn() {
-        if ($this->session->userdata('user_login') == 1)
+        if ($this->session->userdata('user_login') == 1 || $this->session->userdata('guest_login') == 1)
         echo true;
         else
         echo false;
@@ -617,6 +617,9 @@ class Home extends CI_Controller {
             redirect(site_url('admin'), 'refresh');
         }elseif ($this->session->userdata('user_login')) {
             redirect(site_url('user'), 'refresh');
+        }
+        elseif ($this->session->userdata('guest_login')) {
+            redirect(site_url('guest'), 'refresh');
         }
         $page_data['page_name'] = 'login';
         $page_data['page_title'] = get_phrase('login');

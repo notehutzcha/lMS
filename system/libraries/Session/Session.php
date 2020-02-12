@@ -795,7 +795,10 @@ class CI_Session {
 		{
 			foreach ($data as $key => &$value)
 			{
+				// เขียน SESSION
+				// ทำงานแบบนี้ $_SESSION['user_login'] = '1';
 				$_SESSION[$key] = $value;
+				
 			}
 
 			return;

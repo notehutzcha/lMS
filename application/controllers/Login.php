@@ -20,7 +20,11 @@ class Login extends CI_Controller {
             redirect(site_url('admin'), 'refresh');
         }elseif ($this->session->userdata('user_login')) {
             redirect(site_url('user'), 'refresh');
-        }else {
+        }
+        elseif ($this->session->userdata('guest_login')) {
+            redirect(site_url('user'), 'refresh');
+        }
+        else {
             redirect(site_url('home/login'), 'refresh');
         }
     }
@@ -47,6 +51,10 @@ class Login extends CI_Controller {
                 redirect(site_url('admin/dashboard'), 'refresh');
             }else if($row->role_id == 2){
                 $this->session->set_userdata('user_login', '1');
+                redirect(site_url('home'), 'refresh');
+            }
+            else if($row->role_id == 3){
+                $this->session->set_userdata('guest_login', '1');
                 redirect(site_url('home'), 'refresh');
             }
         }else {
@@ -130,8 +138,12 @@ class Login extends CI_Controller {
         $this->session->unset_userdata('name');
         if ($this->session->userdata('admin_login') == 1) {
             $this->session->unset_userdata('admin_login');
-        }else {
+        }
+        elseif ($this->session->userdata('user_login') == 1) {
             $this->session->unset_userdata('user_login');
+        }
+        elseif ($this->session->userdata('guest_login') == 1) {
+            $this->session->unset_userdata('guest_login');
         }
     }
 

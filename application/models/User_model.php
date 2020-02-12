@@ -59,7 +59,7 @@ class User_model extends CI_Model {
             $data['watch_history'] = json_encode(array());
             $data['status'] = html_escape($this->input->post('status'));
 
-            $data['date_end'] = html_escape($this->input->post('status'));
+            // $data['date_end'] = html_escape($this->input->post('status'));
             // Add paypal keys
             $paypal_info = array();
             $paypal['production_client_id'] = html_escape($this->input->post('paypal_client_id'));
