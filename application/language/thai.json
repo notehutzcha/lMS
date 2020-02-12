@@ -268,5 +268,7 @@
     "meta_keywords": "Meta keywords",
     "meta_description": "Meta description",
     "enrolled_course": "Enrolled course",
-    "option": "Option"
+    "option": "Option",
+    "student_edit": "Student edit",
+    "student_edit_form": "Student edit form"
 }
