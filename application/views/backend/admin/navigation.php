@@ -110,9 +110,9 @@
 				<li class = "<?php if($page_name == 'frontend_settings') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/frontend_settings'); ?>"><?php echo get_phrase('website_settings'); ?></a>
 				</li>
-				<li class = "<?php if($page_name == 'payment_settings') echo 'active'; ?>">
+				<!-- <li class = "<?php if($page_name == 'payment_settings') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/payment_settings'); ?>"><?php echo get_phrase('payment_settings'); ?></a>
-				</li>
+				</li> -->
 				<li class = "<?php if($page_name == 'instructor_settings') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/instructor_settings'); ?>"><?php echo get_phrase('instructor_settings'); ?></a>
 				</li>
@@ -122,15 +122,15 @@
 				<li class = "<?php if($page_name == 'smtp_settings') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/smtp_settings'); ?>"><?php echo get_phrase('smtp_settings'); ?></a>
 				</li>
-				<li class = "<?php if($page_name == 'theme_settings') echo 'active'; ?>">
+				<!-- <li class = "<?php if($page_name == 'theme_settings') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/theme_settings'); ?>"><?php echo get_phrase('theme_settings'); ?></a>
-				</li>
+				</li> -->
 				<li class = "<?php if($page_name == 'about') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/about'); ?>"><?php echo get_phrase('about'); ?></a>
 				</li>
-				<li class = "<?php if($page_name == 'mobile_app') echo 'active'; ?>">
+				<!-- <li class = "<?php if($page_name == 'mobile_app') echo 'active'; ?>">
 					<a href="<?php echo site_url('admin/mobile_app'); ?>"><?php echo get_phrase('mobile_app'); ?></a>
-				</li>
+				</li> -->
 			</ul>
 		</li>
 	    </ul>
